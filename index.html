@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game - Untuk Pemula</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 SUDOKU GAME</h1>
+        <p class="subtitle">Permainan Sudoku untuk Pemula</p>
+        
+        <div class="game-info">
+            <div class="info-item">
+                <span class="info-label">Level:</span>
+                <span class="info-value" id="levelDisplay">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Waktu:</span>
+                <span class="info-value" id="timer">00:00</span>
+            </div>
+        </div>
+
+        <div class="level-selector">
+            <h3>Pilih Level:</h3>
+            <button class="level-btn easy-btn" onclick="startGame('easy')">
+                ⭐ Mudah (17 Angka)
+            </button>
+            <button class="level-btn medium-btn" onclick="startGame('medium')">
+                ⭐⭐ Sedang (12 Angka)
+            </button>
+            <button class="level-btn hard-btn" onclick="startGame('hard')">
+                ⭐⭐⭐ Sulit (7 Angka)
+            </button>
+        </div>
+
+        <div class="game-board-container" id="boardContainer" style="display:none;">
+            <table class="sudoku-board" id="sudokuBoard">
+                <!-- Dinamis diisi oleh JavaScript -->
+            </table>
+
+            <div class="controls">
+                <button class="btn btn-hint" onclick="giveHint()">💡 Hint</button>
+                <button class="btn btn-clear" onclick="clearBoard()">🗑️ Bersihkan</button>
+                <button class="btn btn-check" onclick="checkSolution()">✅ Cek Jawaban</button>
+                <button class="btn btn-new" onclick="showLevelSelector()">🔄 Game Baru</button>
+            </div>
+
+            <div class="hint-display" id="hintDisplay"></div>
+        </div>
+
+        <div id="winModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>🎉 SELAMAT! 🎉</h2>
+                <p>Anda berhasil menyelesaikan permainan Sudoku!</p>
+                <p class="time-display">Waktu: <span id="finalTime">00:00</span></p>
+                <button class="btn btn-new" onclick="showLevelSelector()">Mainkan Lagi</button>
+            </div>
+        </div>
+
+        <div id="rulesModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>📋 Cara Bermain Sudoku</h2>
+                <div class="rules">
+                    <p><strong>Tujuan:</strong> Isi semua kotak agar setiap baris, kolom, dan kotak 3x3 berisi angka 1-9.</p>
+                    <p><strong>Aturan:</strong></p>
+                    <ul>
+                        <li>Setiap baris harus berisi angka 1-9 tanpa pengulangan</li>
+                        <li>Setiap kolom harus berisi angka 1-9 tanpa pengulangan</li>
+                        <li>Setiap kotak 3x3 harus berisi angka 1-9 tanpa pengulangan</li>
+                    </ul>
+                    <p><strong>Level:</strong></p>
+                    <ul>
+                        <li>Mudah: 17 angka tersedia</li>
+                        <li>Sedang: 12 angka tersedia</li>
+                        <li>Sulit: 7 angka tersedia</li>
+                    </ul>
+                </div>
+                <button class="btn btn-new" onclick="closeRules()">Mengerti</button>
+            </div>
+        </div>
+
+        <button class="btn btn-rules" onclick="showRules()">📖 Cara Bermain</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+python3 sudoku_game.py
